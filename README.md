@@ -1,3 +1,10 @@
+# Hypertextended
+
+Work in progress fork with the goal of taking the hypertext theme and adding a bunch of features to it, while keeping it a *relatively* lightweight base and a good foundation to build CSS themeing on top of.
+
+
+Original readme below
+
 # Hypertext Theme
 
 [Hypertext](http://hypertext.artofthesmart.com) is a theme for [Grav CMS](https://getgrav.org/) that prioritizes speed and simplicity.  It does not require (nor does it include) any Javascript and it keeps styles to a bare minimum.  This ensures a fast, consistent user experience across browsers and devices.
