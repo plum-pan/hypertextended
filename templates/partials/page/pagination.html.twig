@@ -8,7 +8,7 @@
 {% if structure.inline_pagination %}
 {{ html5 ? '<nav class="pagination">' : '<div class="pagination">' }}
   {% if pagination.hasPrev %}
-    {% set url = (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
+    {% set url = (base_url ~ pagination.params ~ pagination.prevUrl) %}
     <a rel="prev" href="{{ url }}">{{ 'THEME_HYPERTEXT.PAGINATION.PREVIOUS_PAGE'|t|raw }}</a>
   {% else %}
     <span>{{ 'THEME_HYPERTEXT.PAGINATION.PREVIOUS_PAGE'|t|raw }}</span>
@@ -18,7 +18,7 @@
     {% if paginate.isCurrent %}
       , <strong>{{ paginate.number }}</strong>
     {% elseif paginate.isInDelta %}
-      {% set url = (base_url ~ pagination.params ~ paginate.url)|replace({'//':'/'}) %}
+      {% set url = (base_url ~ pagination.params ~ paginate.url) %}
       , <a href="{{ url }}">{{ paginate.number }}</a>
     {% elseif paginate.isDeltaBorder %}
       <span class="gap">&hellip;</span>
@@ -26,7 +26,7 @@
   {% endfor %}
 
   {% if pagination.hasNext %}
-    {% set url = (base_url ~ pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
+    {% set url = (base_url ~ pagination.params ~ pagination.nextUrl) %}
     , <a rel="next" href="{{ url }}">{{ 'THEME_HYPERTEXT.PAGINATION.NEXT_PAGE'|t|raw }}</a>
   {% else %}
     , <span>{{ 'THEME_HYPERTEXT.PAGINATION.NEXT_PAGE'|t|raw }}</span>
@@ -38,7 +38,7 @@
 {{ html5 ? '<nav class="pagination">' : '<div class="pagination">' }}
 <ul>
   {% if pagination.hasPrev %}
-    {% set url = (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
+    {% set url = (base_url ~ pagination.params ~ pagination.prevUrl) %}
     <li><a rel="prev" href="{{ url }}">{{ 'THEME_HYPERTEXT.PAGINATION.PREVIOUS_PAGE'|t|raw }}</a></li>
   {% else %}
     <li><span>{{ 'THEME_HYPERTEXT.PAGINATION.PREVIOUS_PAGE'|t|raw }}</span></li>
@@ -49,7 +49,7 @@
     {% if paginate.isCurrent %}
         <li class="active">{{ paginate.number }}</li>
     {% elseif paginate.isInDelta %}
-        {% set url = (base_url ~ pagination.params ~ paginate.url)|replace({'//':'/'}) %}
+        {% set url = (base_url ~ pagination.params ~ paginate.url) %}
         <li><a href="{{ url }}">{{ paginate.number }}</a></li>
     {% elseif paginate.isDeltaBorder %}
         <li class="gap">&hellip;</li>
@@ -57,7 +57,7 @@
 
   {% endfor %}
   {% if pagination.hasNext %}
-    {% set url = (base_url ~ pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
+    {% set url = (base_url ~ pagination.params ~ pagination.nextUrl) %}
     <li><a rel="next" href="{{ url }}">{{ 'THEME_HYPERTEXT.PAGINATION.NEXT_PAGE'|t|raw }}</a></li>
   {% else %}
     <li><span>{{ 'THEME_HYPERTEXT.PAGINATION.NEXT_PAGE'|t|raw }}</span></li>
