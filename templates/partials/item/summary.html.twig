@@ -49,11 +49,10 @@
 
 <hr/>
 {% if html5 %}
-  <section class="snippet{% if page.taxonomy.category %}{% for cat in page.taxonomy.category %} cat_{{ cat|hyphenize }}{% endfor %}{% endif %}">
+  <section class="snippet{% if page.taxonomy.tag %}{% for cat in page.taxonomy.tag %} cat_{{ cat|hyphenize }}{% endfor %}{% endif %}">
 {% else %}
-  <div class="snippet{% if page.taxonomy.category %}{% for cat in page.taxonomy.category %} cat_{{ cat|hyphenize }}{% endfor %}{% endif %}">
+  <div class="snippet{% if page.taxonomy.tag %}{% for cat in page.taxonomy.tag %} cat_{{ cat|hyphenize }}{% endfor %}{% endif %}">
 {% endif %}
-
 {# Title & Subtitle #}
 <h3>
   <a href="{{ page.url }}">{{ page.title }}</a>
@@ -80,12 +79,13 @@
 </sub>
 {% endif %}
 
-{# Categories #}
-{% if page.taxonomy.category and show_cat %}
+{# Tags #}
+{% if page.taxonomy.tag and show_cat %}
 <br>
-  {{ 'THEME_HYPERTEXT.CATEGORIES.CATEGORIES'|t }}: <small>
-  {% for category in page.taxonomy.category %}
-    {{ structure.use_decorators ? '[' : '' }}<a href="{{ page.parent.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>{{ structure.use_decorators ? ']' : '' }}{{ not loop.last ? ',' : '' }}
+{#  {{ 'THEME_HYPERTEXT.CATEGORIES.CATEGORIES'|t }}: <small> idk how that text works #}
+  Tags: <small>
+  {% for category in page.taxonomy.tag %}
+    {{ structure.use_decorators ? '[' : '' }}<a href="{{ page.parent.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ category }}">{{ category }}</a>{{ structure.use_decorators ? ']' : '' }}{{ not loop.last ? ',' : '' }}
   {% endfor %}</small></p>
 {% else %}
 {% endif %}
@@ -112,5 +112,4 @@
 </ol>
 </p>
 {% endif %} {# End render nested children #}
-
 {{ html5 ? '</section>' : '</div>' }}
